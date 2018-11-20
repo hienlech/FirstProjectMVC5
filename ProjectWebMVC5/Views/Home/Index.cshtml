@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<ProjectWebMVC5.Models.Product>
+<a href="/Home/New"><button class="btn btn-primary">New Product</button></a>
+<table id="products" class="table ">
+    <thead>
+    <tr>
+        <th>Products</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr  style=" margin: 10px 0; width: 100%;">
+   
+                
+                <td class="well" style="display: block;padding: 30px;" >
+                    <h3>
+                        <strong>@product.Name</strong>
+                        <span class="pull-right label label-primary">Instock: @product.NumberInStock</span>
+                    </h3>
+                    <span class="lead">@product.Description</span>
+                    <span class="pull-right"><a class="btn btn-default" href="/Home/Edit/@product.ID">Edit</a></span>
+                </td>
+                    
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+@section scripts
+{
+    <script>
+
+        $(document).ready(
+            () => {
+
+
+                $("#products").DataTable(
+                    
+                )
+
+            });
+
+        
+    </script>
+}

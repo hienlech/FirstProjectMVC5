@@ -1,0 +1,9 @@
+﻿@using ProjectWebMVC5.Models;
+
+@model IEnumerable<Category>
+
+<a href="/Home/Index" class ="btn btn-default btn-block btn-lg" CategoryData = 0>Home</a>
+@foreach (var category in Model)
+{
+    <li class="list-unstyled"><a class="btn btn-default btn-block btn-lg" href="/Home/Index/@category.ID">@category.CategoryName</a></li>
+}
